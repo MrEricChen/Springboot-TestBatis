@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.batis.mapper.TUserMapper">
+    <resultMap id="BaseResultMap" type="com.batis.pojo.TUser">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="age" jdbcType="INTEGER" property="age"/>
+        <result column="birthdat" jdbcType="TIMESTAMP" property="birthdat"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="sex" jdbcType="VARCHAR" property="sex"/>
+        <result column="constellation" jdbcType="VARCHAR" property="constellation"/>
+    </resultMap>
+    <!-- 自定义查询 -->
+    <select id="queryUserByName" parameterType="java.lang.String" resultType="com.batis.pojo.TUser">
+      SELECT * FROM t_user WHERE name = #{name, jdbcType=VARCHAR}
+    </select>
+
+</mapper>
